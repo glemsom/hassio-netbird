@@ -10,6 +10,7 @@ url: "https://github.com/glemsom/hassio-netbird"
 map:
   - config:rw
   - ssl
+init: false
 host_network: true
 privileged:
   - NET_ADMIN
