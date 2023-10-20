@@ -9,6 +9,8 @@
 # Declare variables
 declare -a options
 
+options+=(-F)
+
 SETUP_KEY="$(bashio::config 'SETUP_KEY')"
 if [ -z "$SETUP_KEY" ]; then
     bashio::log.warning "No setup key defined. Remember to disable Peer login expiration!"
@@ -21,6 +23,5 @@ CONFIG_FILE="$(bashio::config 'SETUP_KEY')"
 
 bashio::log.info "Hello..."
 
-## Run your program
-#exec /usr/bin/my_program
-tail -f /dev/null
+## Run netbird
+exec netbird up -F "${options[@]}"
