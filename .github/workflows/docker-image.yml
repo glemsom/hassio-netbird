@@ -7,24 +7,28 @@ on:
     branches: [ "main" ]
 
 jobs:
-
-  build:
-    name: Build Netbird add-on
+  init:
+    name: Initialize build
     runs-on: ubuntu-latest
     steps:
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3.0.0
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Build image
-        uses: home-assistant/builder@2023.09.0
-        with:
-          args: |
-            --all \
-            --target netbird-client \
-            --docker-hub "ghcr.io/${{ github.repository_owner }}" \
-            --addon
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v3.0.0
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Checkout repository
+      uses: actions/checkout@v4.1.0
+  build:
+    runs-on: ubuntu-latest
+    needs: init
+    name: Build image
+    steps:
+    - name: Build image
+      uses: home-assistant/builder@2023.09.0
+      with:
+        args: |
+          --all \
+          --target netbird-client \
+          --docker-hub "ghcr.io/${{ github.repository_owner }}" \
+          --addon
