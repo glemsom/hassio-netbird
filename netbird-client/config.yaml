@@ -17,3 +17,9 @@ privileged:
   - SYS_ADMIN
 devices:
   - /dev/net/tun
+options:
+  SETUP_KEY: ""
+  CONFIG_FILE: /config/netbird/config.json
+schema:
+  SETUP_KEY: str?
+  CONFIG_FILE: str

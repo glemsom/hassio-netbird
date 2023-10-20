@@ -7,13 +7,17 @@
 # Add your code here
 
 # Declare variables
-#declare message
+declare -a options
 
-## Get the 'message' key from the user config options.
-#message=$(bashio::config 'message')
+SETUP_KEY="$(bashio::config 'SETUP_KEY')"
+if [ -z "$SETUP_KEY" ]; then
+    bashio::warning "No setup key defined. Remember to disable Peer login expiration!"
+else
+    bashio::info "Setup key found, using $SETUP_KEY"
+    options+=(--setup-key "${SETUP_KEY}")
+fi
 
-## Print the message the user supplied, defaults to "Hello World..."
-#bashio::log.info "${message:="Hello World..."}"
+CONFIG_FILE="$(bashio::config 'SETUP_KEY')"
 
 bashio::log.info "Hello..."
 
