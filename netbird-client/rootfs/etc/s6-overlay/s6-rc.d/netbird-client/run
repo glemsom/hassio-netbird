@@ -11,9 +11,9 @@ declare -a options
 
 SETUP_KEY="$(bashio::config 'SETUP_KEY')"
 if [ -z "$SETUP_KEY" ]; then
-    bashio::warning "No setup key defined. Remember to disable Peer login expiration!"
+    bashio::log.warning "No setup key defined. Remember to disable Peer login expiration!"
 else
-    bashio::info "Setup key found, using $SETUP_KEY"
+    bashio::log.info "Setup key found, using $SETUP_KEY"
     options+=(--setup-key "${SETUP_KEY}")
 fi
 
