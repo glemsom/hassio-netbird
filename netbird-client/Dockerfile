@@ -4,7 +4,8 @@ FROM $BUILD_FROM
 # Install dependencies
 RUN \
   apk add --no-cache ca-certificates iptables ip6tables \
-  && rm -rf /var/cache/apk/*
+  && rm -rf /var/cache/apk/* && \
+  curl -fsSL https://pkgs.netbird.io/install.sh | sh
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]

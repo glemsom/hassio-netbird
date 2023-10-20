@@ -15,3 +15,5 @@ host_network: true
 privileged:
   - NET_ADMIN
   - SYS_ADMIN
+devices:
+  - /dev/net/tun
