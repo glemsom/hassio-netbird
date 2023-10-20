@@ -27,5 +27,5 @@ schema:
   CONFIG_FILE: str
   ADMIN_URL: str
   MANAGEMENT_URL: str
-  LOG_LEVEL: list(trace|debug|info|notice|warning|error|fatal)
+  LOG_LEVEL: list(info|warning|error|trace|debug)
 image: "ghcr.io/glemsom/{arch}-netbird-client"
