@@ -20,7 +20,7 @@ jobs:
     - name: Get branch name
       shell: bash
       run: |
-        [ "${GITHUB_REF##*/}" == "dev" ] && echo dev >> $GITHUB_ENV
+        [ "${GITHUB_REF##*/}" == "dev" ] && echo "VERSION_OVERRIDE=--version dev" || echo "VERSION_OVERRIDE=" >> $GITHUB_ENV
     - name: Build image
       uses: home-assistant/builder@2023.09.0
       with:
@@ -29,5 +29,4 @@ jobs:
           --target netbird-client \
           --docker-hub "ghcr.io/${{ github.repository_owner }}" \
           --addon \
-          --no-latest \
-          --version ${GITHUB_REF##*/}
+          --no-latest ${VERSION_OVERRIDE}
