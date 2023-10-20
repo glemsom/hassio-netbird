@@ -1,10 +1,7 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
 # Start the Netbird client
-# s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
-
-# Add your code here
 
 # Declare variables
 declare -a options
@@ -21,7 +18,7 @@ fi
 
 CONFIG_FILE="$(bashio::config 'SETUP_KEY')"
 
-bashio::log.info "Hello..."
+bashio::log.info "Starting Netbird client..."
 
 ## Run netbird
 exec netbird up -F "${options[@]}"
