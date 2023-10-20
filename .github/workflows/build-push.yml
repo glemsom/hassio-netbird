@@ -17,6 +17,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Checkout repository
       uses: actions/checkout@v4.1.0
+    - name: Get branch name
+      shell: bash
+      run: |
+        [ "${GITHUB_REF##*/}" == "dev" ] && echo dev >> $GITHUB_ENV
     - name: Build image
       uses: home-assistant/builder@2023.09.0
       with:
