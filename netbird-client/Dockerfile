@@ -8,9 +8,3 @@ RUN \
 
 # Setup environment
 ENV NB_FOREGROUND_MODE=true
-
-# Startup script
-COPY run.sh /
-RUN chmod a+x /run.sh
-
-CMD [ "/run.sh" ]
