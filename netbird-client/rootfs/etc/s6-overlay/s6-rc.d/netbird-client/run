@@ -17,7 +17,6 @@ else
 fi
 
 CONFIG_FILE="$(bashio::config 'SETUP_KEY')"
-bashio::log.info " DEV VERSION "
 bashio::log.info "Starting Netbird client..."
 
 ## Run netbird
