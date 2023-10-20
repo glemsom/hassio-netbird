@@ -10,17 +10,21 @@ jobs:
 
   build:
     name: Build Netbird add-on
-
     runs-on: ubuntu-latest
-
     steps:
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3.0.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Build image
         uses: home-assistant/builder@2023.09.0
         with:
           args: |
-            --test \
             --all \
             --target netbird-client \
-            --docker-hub glemsom
+            --docker-hub "ghcr.io/${{ github.repository_owner }}" \
+            --addon
