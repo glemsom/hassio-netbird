@@ -20,7 +20,7 @@ jobs:
     - name: Get branch name
       shell: bash
       run: |
-        [ "${GITHUB_REF##*/}" == "dev" ] && echo "VERSION_OVERRIDE=--version dev" || echo "VERSION_OVERRIDE=" >> $GITHUB_ENV
+        [ "${GITHUB_REF##*/}" == "dev" ] && echo "VERSION_OVERRIDE=--version dev" >> $GITHUB_ENV || echo "VERSION_OVERRIDE=" >> $GITHUB_ENV
     - name: Build image
       uses: home-assistant/builder@2023.09.0
       with:
