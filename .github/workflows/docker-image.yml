@@ -25,4 +25,5 @@ jobs:
           --target netbird-client \
           --docker-hub "ghcr.io/${{ github.repository_owner }}" \
           --addon \
-          --version dev
+          --version dev \
+          --no-latest
