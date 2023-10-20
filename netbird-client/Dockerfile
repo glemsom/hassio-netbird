@@ -17,3 +17,4 @@ COPY rootfs /
 
 # Setup environment
 ENV NB_FOREGROUND_MODE=true
+ENV SKIP_UI_APP=true
