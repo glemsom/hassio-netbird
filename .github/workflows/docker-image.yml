@@ -15,6 +15,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       - name: Build image
         uses: home-assistant/builder@2023.09.0
+        with:
+          args: |
+            --test \
+            --all \
+            --target addon-folder \
+            --docker-hub glemsom
