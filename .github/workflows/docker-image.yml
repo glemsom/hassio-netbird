@@ -22,5 +22,5 @@ jobs:
           args: |
             --test \
             --all \
-            --target addon-folder \
+            --target netbird-client \
             --docker-hub glemsom
