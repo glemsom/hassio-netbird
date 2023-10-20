@@ -25,10 +25,10 @@ ADMIN_URL="$(bashio::config 'ADMIN_URL')"
 options+=(--admin-url "${ADMIN_URL}")
 
 MANAGEMENT_URL="$(bashio::config 'MANAGEMENT_URL')"
-options+=(--management-url  "${MANAGEMENT_URL}")
+options+=(--management-url "${MANAGEMENT_URL}")
 
 LOG_LEVEL="$(bashio::config 'LOG_LEVEL')"
-options+=(--management-url  "${LOG_LEVEL}")
+options+=(--log-level "${LOG_LEVEL}")
 
 ## Run netbird
 bashio::log.info "Starting Netbird client..."
