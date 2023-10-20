@@ -8,6 +8,7 @@ declare -a options
 
 options+=(-F)
 
+# Setup keys, if defined
 SETUP_KEY="$(bashio::config 'SETUP_KEY')"
 if [ -z "$SETUP_KEY" ]; then
     bashio::log.warning "No setup key defined. Remember to disable Peer login expiration!"
@@ -16,8 +17,19 @@ else
     options+=(--setup-key "${SETUP_KEY}")
 fi
 
+# Config file
 CONFIG_FILE="$(bashio::config 'SETUP_KEY')"
-bashio::log.info "Starting Netbird client..."
+options+=(--config "${CONFIG_FILE}")
+
+ADMIN_URL="$(bashio::config 'ADMIN_URL')"
+options+=(--admin-url "${ADMIN_URL}")
+
+MANAGEMENT_URL="$(bashio::config 'MANAGEMENT_URL')"
+options+=(--management-url  "${MANAGEMENT_URL}")
+
+LOG_LEVEL="$(bashio::config 'LOG_LEVEL')"
+options+=(--management-url  "${LOG_LEVEL}")
 
 ## Run netbird
+bashio::log.info "Starting Netbird client..."
 exec netbird up -F "${options[@]}"
