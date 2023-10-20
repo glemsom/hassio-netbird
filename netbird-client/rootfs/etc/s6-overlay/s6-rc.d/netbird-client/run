@@ -18,7 +18,7 @@ else
 fi
 
 # Config file
-CONFIG_FILE="$(bashio::config 'SETUP_KEY')"
+CONFIG_FILE="$(bashio::config 'CONFIG_FILE')"
 options+=(--config "${CONFIG_FILE}")
 
 ADMIN_URL="$(bashio::config 'ADMIN_URL')"
