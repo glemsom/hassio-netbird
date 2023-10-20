@@ -25,4 +25,4 @@ jobs:
           --target netbird-client \
           --docker-hub "ghcr.io/${{ github.repository_owner }}" \
           --addon \
-          --release-tag dev
+          --image ghcr.io/glemsom/{arch}-netbird-client:dev
