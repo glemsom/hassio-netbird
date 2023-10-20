@@ -1,0 +1,16 @@
+name: "Netbird Client"
+version: "0.23.9-1"
+slug: netbird_client
+description: >-
+  "Netbird client addon for Home Assistant"
+arch:
+  - armhf
+  - armv7
+url: "https://github.com/glemsom/hassio-netbird"
+map:
+  - config:rw
+  - ssl
+host_network: true
+privileged:
+  - NET_ADMIN
+  - SYS_ADMIN
