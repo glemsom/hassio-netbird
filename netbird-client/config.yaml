@@ -4,7 +4,9 @@ slug: netbird_client
 description: >-
   Netbird client addon for Home Assistant
 arch:
- - aarch64
+  - aarch64
+  - amd64
+  - i386
 url: "https://github.com/glemsom/hassio-netbird"
 map:
   - config:rw
