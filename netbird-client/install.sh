@@ -1,5 +1,5 @@
 #!/bin/sh
-# Netbird binary package installer
+# NetBird client binary package installer
 #
 # By Glenn Sommer
 set -e

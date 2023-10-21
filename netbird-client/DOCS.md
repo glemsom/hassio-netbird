@@ -1,4 +1,4 @@
-# Home Assistant Community Add-on: Netbird Client
+# Home Assistant Community Add-on: NetBird Client
 
 ## Configuration
 
@@ -13,9 +13,9 @@
 
 ### Self-Hosted (Alternative solution)
 
-1. Setup your self-hosted [Netbird instance][netbird-self]
+1. Setup your self-hosted [NetBird instance][netbird-self]
 2. Create a [setup-key][netbird-setup-key] for your Homeassistant
-3. Add your self-hosted configuration to the Netbird client
+3. Add your self-hosted configuration to the NetBird client
    1. `CONFIG_FILE`: Leave this at default
    2. `ADMIN_URL`: Add the admin panel URL for your self-hosted instance.
    3. `MANAGEMENT_URL`: Add the management URL for your self-hosted instance.
@@ -25,14 +25,14 @@
 ### Option: `SETUP_KEY`
 
 Setup key obtained from the Management Service Dashboard.
-Use this key to connect your homeassistance to your Netbird mesh network.
+Use this key to connect your homeassistance to your NetBird mesh network.
 
 **If left blank, the client will generate peer registration URL**
 _Copy/paste the URL from the add-on logs_
 
 ### Option: `CONFIG_FILE`
 
-Use `CONFIG_FILE` to fore another path for storing the Netbird configuration
+Use `CONFIG_FILE` to fore another path for storing the NetBird configuration
 _(Default location is often OK.)_
 
 ### Option: `ADMIN_URL`
@@ -66,7 +66,7 @@ For a full list of all contributors, check [the contributor's page][github-contr
 [github-contributors]: https://github.com/glemsom/hassio-netbird/graphs/contributors
 [github-glemsom]: https://github.com/glemsom
 
-<!-- Netbird -->
+<!-- NetBird -->
 
 [netbird]: https://netbird.io/
 [netbird-login]: https://login.netbird.io/
