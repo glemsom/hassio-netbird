@@ -1,5 +1,5 @@
 name: "Netbird Client"
-version: "0.23.9-1"
+version: "0.24.0-1"
 slug: netbird_client
 description: >-
   Netbird client addon for Home Assistant
