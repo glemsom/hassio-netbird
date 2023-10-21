@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.24.0-2]
+
+- Documentation updates
+
 ## [0.24.0-1]
 
 - NetBird client: 0.24.0
