@@ -2,7 +2,7 @@ name: "Netbird Client"
 version: "0.24.0-1"
 slug: netbird_client
 description: >-
-  Netbird client addon for Home Assistant
+  Netbird client allows you to connect devices using a secure WireGuard®-based mesh network with SSO/MFA support
 arch:
   - aarch64
   - amd64
