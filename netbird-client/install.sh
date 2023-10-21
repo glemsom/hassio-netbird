@@ -1,5 +1,7 @@
 #!/bin/sh
-# Netbird installer for containers
+# Netbird binary package installer
+#
+# By Glenn Sommer
 set -e
 
 VERSION=$1
