@@ -2,7 +2,8 @@ name: "Netbird Client"
 version: "0.24.0-1"
 slug: netbird_client
 description: >-
-  Netbird client allows you to connect devices using a secure WireGuard®-based mesh network with SSO/MFA support
+  WireGuard®-based mesh network with SSO/MFA support.
+  Free and easy to setup and maintain.
 arch:
   - aarch64
   - amd64
