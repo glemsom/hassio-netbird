@@ -8,7 +8,7 @@ RUN \
 
 # Install netbird
 COPY install.sh /
-RUN ./install.sh 0.23.9
+RUN ./install.sh 0.24.0
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
