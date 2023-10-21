@@ -3,11 +3,12 @@ FROM $BUILD_FROM
 
 # Install dependencies
 RUN \
-  apk add --no-cache ca-certificates iptables ip6tables \
+  apk add --no-cache ca-certificates iptables ip6tables curl tar gzip \
   && rm -rf /var/cache/apk/*
 
 # Install netbird
-RUN curl -fsSL https://pkgs.netbird.io/install.sh | sh
+COPY install.sh /
+RUN ./install.sh 0.23.9
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]

@@ -3,7 +3,6 @@
 # Start the Netbird client
 # ==============================================================================
 
-# Declare variables
 declare -a options
 
 options+=(-F)
@@ -30,6 +29,9 @@ options+=(--management-url "${MANAGEMENT_URL}")
 LOG_LEVEL="$(bashio::config 'LOG_LEVEL')"
 options+=(--log-level "${LOG_LEVEL}")
 
-## Run netbird
+bashio::log.info "Netbird options:"
+bashio::log.info "${options[@]}"
+
+# Run netbird
 bashio::log.info "Starting Netbird client..."
-exec netbird up -F "${options[@]}"
+exec netbird up "${options[@]}"

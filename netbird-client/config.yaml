@@ -30,4 +30,4 @@ schema:
   ADMIN_URL: str
   MANAGEMENT_URL: str
   LOG_LEVEL: list(info|warning|error|trace|debug)
-image: "ghcr.io/glemsom/{arch}-netbird-client"
+#image: "ghcr.io/glemsom/{arch}-netbird-client"
