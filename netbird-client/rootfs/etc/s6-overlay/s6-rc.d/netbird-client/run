@@ -7,28 +7,31 @@ declare -a options
 
 options+=(-F)
 
-# Setup keys, if defined
-SETUP_KEY="$(bashio::config 'SETUP_KEY')"
-if [ -z "$SETUP_KEY" ]; then
-    bashio::log.warning "No setup key defined. Remember to disable Peer login expiration!"
-else
-    bashio::log.info "Setup key found, using $SETUP_KEY"
-    options+=(--setup-key "${SETUP_KEY}")
-fi
-
 # Config file
 CONFIG_FILE="$(bashio::config 'CONFIG_FILE')"
 options+=(--config "${CONFIG_FILE}")
 
-ADMIN_URL="$(bashio::config 'ADMIN_URL')"
-options+=(--admin-url "${ADMIN_URL}")
+if [ -e "$CONFIG_FILE" ]; then
+    bashio::log.info "Configuration file found ($CONFIG_FILE) - ignoring other options"
+else
+    # Setup keys, if defined
+    SETUP_KEY="$(bashio::config 'SETUP_KEY')"
+    if [ -z "$SETUP_KEY" ]; then
+        bashio::log.warning "No setup key defined. Remember to disable Peer login expiration!"
+    else
+        bashio::log.info "Setup key found, using $SETUP_KEY"
+        options+=(--setup-key "${SETUP_KEY}")
+    fi
 
-MANAGEMENT_URL="$(bashio::config 'MANAGEMENT_URL')"
-options+=(--management-url "${MANAGEMENT_URL}")
+    ADMIN_URL="$(bashio::config 'ADMIN_URL')"
+    options+=(--admin-url "${ADMIN_URL}")
 
-LOG_LEVEL="$(bashio::config 'LOG_LEVEL')"
-options+=(--log-level "${LOG_LEVEL}")
+    MANAGEMENT_URL="$(bashio::config 'MANAGEMENT_URL')"
+    options+=(--management-url "${MANAGEMENT_URL}")
 
+    LOG_LEVEL="$(bashio::config 'LOG_LEVEL')"
+    options+=(--log-level "${LOG_LEVEL}")
+fi
 bashio::log.info "Netbird options:"
 bashio::log.info "${options[@]}"
 
