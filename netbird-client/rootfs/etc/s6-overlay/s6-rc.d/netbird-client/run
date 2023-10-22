@@ -9,32 +9,36 @@ declare -a options
 options+=(-F)
 
 # Config file
-CONFIG_FILE="$(bashio::config 'CONFIG_FILE')"
+if bashio::config.has_value "config_file"; then
+    CONFIG_FILE="$(bashio::config "config_file")"
+else
+    CONFIG_FILE="/config/netbird/config.json"
+fi
 options+=(--config "${CONFIG_FILE}")
 
-if [ -e "$CONFIG_FILE" ]; then
-    bashio::log.info "Configuration file found ($CONFIG_FILE) - ignoring other options"
+if [ -e "${CONFIG_FILE}" ]; then
+    bashio::log.info "Config file found at ${CONFIG_FILE}. Ignoring other options"
 else
-    # Setup keys, if defined
-    SETUP_KEY="$(bashio::config 'SETUP_KEY')"
-    if [ -z "$SETUP_KEY" ]; then
-        bashio::log.warning "No setup key defined. Remember to disable Peer login expiration!"
+    if bashio::config.has_value "setup_key"; then
+        options+=(--setup-key "$(bashio::config 'setup_key')")
     else
-        bashio::log.info "Setup key found, using $SETUP_KEY"
-        options+=(--setup-key "${SETUP_KEY}")
+        bashio::log.warning "No setup key defined. Falling back to login-url (See later in this log)"
+        bashio::log.info "Remember to disable peer login expiration in the admin panel"
     fi
 
-    ADMIN_URL="$(bashio::config 'ADMIN_URL')"
-    options+=(--admin-url "${ADMIN_URL}")
+    if bashio::config.has_value "admin_url"; then
+        options+=(--admin-url "$(bashio::config 'admin_url')")
+    fi
 
-    MANAGEMENT_URL="$(bashio::config 'MANAGEMENT_URL')"
-    options+=(--management-url "${MANAGEMENT_URL}")
+    if bashio::config.has_value "management_url"; then
+        options+=(--management-url "$(bashio::config 'management_url')")
+    fi
 
-    LOG_LEVEL="$(bashio::config 'LOG_LEVEL')"
+    LOG_LEVEL="$(bashio::config 'log_level')"
     options+=(--log-level "${LOG_LEVEL}")
 fi
-bashio::log.info "NetBird options:"
-bashio::log.info "${options[@]}"
+
+bashio::log.info "NetBird options: ${options[@]}"
 
 # Run netbird
 bashio::log.info "Starting NetBird client..."

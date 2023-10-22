@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.24.0-3]
+
+- Cleanup in options
+
 ## [0.24.0-2]
 
 - Documentation updates
