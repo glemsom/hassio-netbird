@@ -1,14 +1,19 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Install dependencies
-RUN \
-  apk add --no-cache ca-certificates iptables ip6tables curl tar gzip \
-  && rm -rf /var/cache/apk/*
+ARG BUILD_ARCH=amd64
+ARG BUILD_VERSION
 
-# Install netbird
-COPY install.sh /
-RUN ./install.sh 0.24.0
+# Install dependencies
+RUN apk add --no-cache ca-certificates nftables=1.0.7-r2 curl tar gzip
+
+# Add netbird
+RUN ARCH="${BUILD_ARCH}" \
+  && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
+  && if [ "${BUILD_ARCH}" = "armhf" ]; then ARCH="armv6"; fi \
+  && curl -L -s "https://github.com/netbirdio/netbird/releases/download/v${BUILD_VERSION/-*/}/netbird_${BUILD_VERSION/-*/}_linux_${ARCH}.tar.gz" \
+  | tar xzvpf - -C /usr/bin/ netbird
+
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]

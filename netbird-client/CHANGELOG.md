@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.24.0-4]
+
+- Cleanup NetBird installation, and write NetBird version to log
+
 ## [0.24.0-3]
 
 - Cleanup in options

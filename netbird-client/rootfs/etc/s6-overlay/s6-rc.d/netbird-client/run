@@ -38,6 +38,7 @@ else
     options+=(--log-level "${LOG_LEVEL}")
 fi
 
+bashio::log.info "Netbird version: $(netbird version)"
 bashio::log.info "NetBird options: ${options[@]}"
 
 # Run netbird
