@@ -1,6 +1,6 @@
 # Home Assistant Community Add-On: NetBird Client
 
-![Supports aarch64 Architecture][aarch64-shield] ![Supports amd64 Architecture][amd64-shield] ![Supports i386 Architecture][i386-shield]
+![Supports aarch64 Architecture][aarch64-shield] ![Supports aarch64 Architecture][armhf-shield] ![Supports amd64 Architecture][amd64-shield] ![Supports i386 Architecture][i386-shield]
 
 NetBird is a simple and fast alternative to corporate VPNs built on top of WireGuard® making it easy to create secure private networks for your organization or home. It requires near zero configuration effort leaving behind the hassle of opening ports, complex firewall rules, vpn gateways, and so forth.
 

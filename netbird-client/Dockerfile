@@ -14,7 +14,6 @@ RUN ARCH="${BUILD_ARCH}" \
   && curl -L -s "https://github.com/netbirdio/netbird/releases/download/v${BUILD_VERSION/-*/}/netbird_${BUILD_VERSION/-*/}_linux_${ARCH}.tar.gz" \
   | tar xzvpf - -C /usr/bin/ netbird
 
-
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
