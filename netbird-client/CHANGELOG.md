@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.24.3-1]
+
+ - Update to NetBird 0.24.3
+
 ## [0.24.2-1]
 
  - Update to NetBird 0.24.2
