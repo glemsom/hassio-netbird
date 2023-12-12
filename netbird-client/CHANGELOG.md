@@ -1,7 +1,13 @@
 # Changelog
+
+## [0.24.4-2]
+
+ - Add fake systemd resolv
+
 ## [0.24.4-1]
 
  - Update to NetBird 0.24.4
+
 ## [0.24.3-1]
 
  - Update to NetBird 0.24.3
