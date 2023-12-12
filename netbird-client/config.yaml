@@ -1,5 +1,5 @@
 name: "NetBird Client"
-version: "0.24.4-1"
+version: "0.24.4-2"
 slug: netbird_client
 description: >-
   WireGuard®-based mesh network with SSO/MFA support.
