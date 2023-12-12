@@ -41,6 +41,11 @@ fi
 bashio::log.info "Netbird version: $(netbird version)"
 bashio::log.info "NetBird options: ${options[@]}"
 
+# Fake systemd-resolv
+CONTENT=$(cat /etc/resolv.conf)
+echo '# systemd-resolved' > /etc/resolv.conf
+echo "$CONTENT" >> /etc/resolv.conf
+
 # Run netbird
 bashio::log.info "Starting NetBird client..."
 exec netbird up "${options[@]}"
